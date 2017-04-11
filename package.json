@@ -1,0 +1,23 @@
+{
+  "name": "configs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "clean": "rimraf ./api/swagger-ui/swagger.json",
+    "build": "yaml2json ./api/swagger/swagger.yaml > ./api/swagger-ui/swagger.json",
+    "edit": "swagger-project edit",
+    "deploy": "cf push",
+    "preview": "http-server -p 9000 ./api/swagger-ui",
+    "watch": "nodemon -q -w ./api/swagger/ -e '.yaml' -x 'npm run build'"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1",
+    "swagger-ui": "^3.0.5",
+    "yamljs": "^0.2.9"
+  }
+}
